@@ -1,44 +1,123 @@
-# Sudoku mit Python und Pygame
+# 🎯 SudokuWPN — Stylisches Sudoku (Deutsch)
 
-Ein Schulprojekt zur Entwicklung eines spielbaren Sudoku mit grafischer Benutzeroberfläche.
+Ein kleines, grafisches Sudoku-Spiel in Python mit Pygame für das Spielbrett und Asciimatics für das Start-Menü. Minimalistisch, schnell und einfach anpassbar.
 
-## Features
+## ✨ Features
+- Zufällig generierte, vollständige Sudoku-Boards ✅  
+- Puzzle-Erstellung durch Entfernen von Feldern (Schwierigkeitsstufen) 🎚️  
+- Start-Menü mit Schwierigkeit & Debug-Option (Asciimatics) 🎛️  
+- Spiel-UI mit Pygame: Maus- und Tastatursteuerung 🖱️⌨️
 
-- Grafische Benutzeroberfläche mit Pygame
-- Generierung von zufälligen Sudoku-Rätseln
-- Benutzerfreundliche Eingabe von Zahlen
-- Überprüfung der Lösungen
-- Algorithmische Lösung vom Computer
+## 🧩 Voraussetzungen
+- Python 3.8+  
+- pip  
+- Empfohlene Bibliotheken:
+  - pygame
+  - asciimatics
 
-## Installation
-
-1. Stelle sicher, dass Python 3.x installiert ist
-2. Installiere die benötigten Pakete:
+## 🛠️ Installation (empfohlen virtuelles Environment)
 ```bash
-pip install pygame
+# im Projektordner:
+python -m venv .venv
+# Windows aktivieren
+.venv\Scripts\activate
+# Abhängigkeiten installieren
+pip install pygame asciimatics
 ```
-3. Lade das Repository herunter
-4. Starte das Spiel mit:
+
+## ▶️ Starten
+Im Projektordner ausführen:
 ```bash
-python sudoku.py
+python main.py
+```
+Zuerst erscheint das Asciimatics-Setup-Menü (Schwierigkeit, Debug). Danach öffnet sich das Pygame-Fenster mit dem Spiel.
+
+## 🎮 Steuerung
+- Maus: Zelle auswählen  
+- Zahlentasten 1–9: Zahl in ausgewählte Zelle eingeben (nur, wenn Slot frei)  
+- Leertaste: Lösen / Cheat (abhängig vom Debug-Flag) ␣  
+- R: Zurücksetzen ↩️  
+- N: Neues Spiel ➕  
+- Rücktaste / Entf: Eingabe löschen ⌫
+
+## ⚙️ Konfiguration & wichtigste Konstanten
+- DIFFICULTY: Anzahl der entfernten Felder (wird im Menü gesetzt)  
+- DEBUG: Erlaubt Lösungs-Cheat (wird im Menü gesetzt)  
+- BOARD_SIZE, CELL_SIZE, MARGIN, FPS — in main.py oben definiert
+
+## 📂 Kurzer Code-Überblick
+Hauptdatei: `main.py` — enthält:
+- Board-Generator: `generate_full_board()`  
+- Puzzle-Erzeugung: `generate_puzzle(board, blank_spaces)`  
+- Validierung / Solver-Hilfen: `find_empty()`, `check_validity()`  
+- Spielklasse: `Sudoku` (Spielzustand, Auswahl, Reset, New Game)  
+- UI: `draw_board()` + `main()` (Event-Loop)  
+- Setup-Menü: `run_sudoku_setup(screen)` (Asciimatics Frame)
+
+## 🐞 Troubleshooting
+- Schwarzes/weißes Fenster? Stelle sicher, dass pygame installiert ist und die Grafikkarte Treiber aktuell sind.  
+- Reproduzierbare Puzzles: `random.seed(...)` vor Spielstart setzen.
+
+Viel Spaß beim Spielen! 🎉
+```// filepath: c:\Users\volls\Development\SudokuWPN\README.md
+# 🎯 SudokuWPN — Stylisches Sudoku (Deutsch)
+
+Ein kleines, grafisches Sudoku-Spiel in Python mit Pygame für das Spielbrett und Asciimatics für das Start-Menü. Minimalistisch, schnell und einfach anpassbar.
+
+## ✨ Features
+- Zufällig generierte, vollständige Sudoku-Boards ✅  
+- Puzzle-Erstellung durch Entfernen von Feldern (Schwierigkeitsstufen) 🎚️  
+- Start-Menü mit Schwierigkeit & Debug-Option (Asciimatics) 🎛️  
+- Spiel-UI mit Pygame: Maus- und Tastatursteuerung 🖱️⌨️
+
+## 🧩 Voraussetzungen
+- Python 3.8+  
+- pip  
+- Empfohlene Bibliotheken:
+  - pygame
+  - asciimatics
+
+## 🛠️ Installation (empfohlen virtuelles Environment)
+```bash
+# im Projektordner:
+python -m venv .venv
+# Windows aktivieren
+.venv\Scripts\activate
+# Abhängigkeiten installieren
+pip install pygame asciimatics
 ```
 
-## Steuerung
+## ▶️ Starten
+Im Projektordner ausführen:
+```bash
+python main.py
+```
+Zuerst erscheint das Asciimatics-Setup-Menü (Schwierigkeit, Debug). Danach öffnet sich das Pygame-Fenster mit dem Spiel.
 
-- Mausklick: Feld auswählen
-- Zifferntasten (1-9): Zahl eingeben
-- Entf/Del: Zahl löschen
-- Space: Rätsel lösen lassen
-- R: Rätsel zurücksetzen
-- N: Neues Spiel starten
+## 🎮 Steuerung
+- Maus: Zelle auswählen  
+- Zahlentasten 1–9: Zahl in ausgewählte Zelle eingeben (nur, wenn Slot frei)  
+- Leertaste: Lösen / Cheat (abhängig vom Debug-Flag) ␣  
+- R: Zurücksetzen ↩️  
+- N: Neues Spiel ➕  
+- Rücktaste / Entf: Eingabe löschen ⌫
 
-## Technische Details
+## ⚙️ Konfiguration & wichtigste Konstanten
+- DIFFICULTY: Anzahl der entfernten Felder (wird im Menü gesetzt)  
+- DEBUG: Erlaubt Lösungs-Cheat (wird im Menü gesetzt)  
+- BOARD_SIZE, CELL_SIZE, MARGIN, FPS — in main.py oben definiert
 
-Das Projekt verwendet:
-- Pygame für die grafische Darstellung
-- Backtracking-Algorithmus für Sudoku-Generierung
-- Objektorientierte Programmierung für Spiellogik
+## 📂 Kurzer Code-Überblick
+Hauptdatei: `main.py` — enthält:
+- Board-Generator: `generate_full_board()`  
+- Puzzle-Erzeugung: `generate_puzzle(board, blank_spaces)`  
+- Validierung / Solver-Hilfen: `find_empty()`, `check_validity()`  
+- Spielklasse: `Sudoku` (Spielzustand, Auswahl, Reset, New Game)  
+- UI: `draw_board()` + `main()` (Event-Loop)  
+- Setup-Menü: `run_sudoku_setup(screen)` (Asciimatics Frame)
 
-## Autor
+## 🐞 Troubleshooting
+- Schwarzes/weißes Fenster? Stelle sicher, dass pygame installiert ist und die Grafikkarte Treiber aktuell sind.  
+- Reproduzierbare Puzzles: `random.seed(...)` vor Spielstart setzen.
 
-Entwickelt als Schulprojekt von Marvin
+Viel Spaß beim Spielen! 🎉
