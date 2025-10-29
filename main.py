@@ -22,7 +22,7 @@ CELL_SIZE = BOARD_SIZE // 9
 MARGIN = (WINDOW_SIZE - BOARD_SIZE) // 2
 FPS = 60
 DEBUG = False
-DIFFICULTY = 20
+DIFFICULTY = 15
 
 # Vorbestimmte Farben der Einfachheitshalber
 WHITE = (255, 255, 255)
@@ -354,7 +354,7 @@ def run_sudoku_setup(screen):
             self.add_layout(diff_buttons)
 
             def set_diff(level):
-                levels = {"Leicht": 5, "Mittel": 25, "Schwer": 35}
+                levels = {"Leicht": 15, "Mittel": 25, "Schwer": 35}
                 self.difficulty = levels[level]
                 self.scene.add_effect(
                     PopUpDialog(screen, f"Schwierigkeit: {level}", ["OK"])
